@@ -502,6 +502,54 @@
 </div>
 </footer>
 
+    <!-- Floating Button -->
+<div class="chat-floating" id="openPopup">
+    💬 Tanya Kami
+</div>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popup">
+
+    <div class="popup-box">
+
+        <button class="close-popup" id="closePopup">
+            &times;
+        </button>
+
+        <img src="images/logo-03.png" class="popup-logo">
+
+        <h2>Halo! 👋</h2>
+
+        <h3>Selamat Datang di<br>The Taruma Heritage</h3>
+
+        <p>
+            Isi data singkat berikut.
+            Tim Marketing kami siap membantu Anda mendapatkan
+            informasi rumah subsidi, simulasi KPR dan promo terbaru.
+        </p>
+
+        <input
+            type="text"
+            id="nama"
+            placeholder="Nama Lengkap">
+
+        <input
+            type="text"
+            id="alamat"
+            placeholder="Alamat Domisili">
+
+        <button id="chatWA" class="popup-btn">
+            Konsultasi Sekarang
+        </button>
+
+        <small>
+            🔒 Data Anda aman dan hanya digunakan untuk keperluan konsultasi.
+        </small>
+
+    </div>
+
+</div>
+
 <script>
 
 window.addEventListener('scroll',()=>{
@@ -551,6 +599,51 @@ function revealOnScroll(){
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 </script>
+
+    <script>
+        const popup = document.getElementById("popup");
+
+document.getElementById("openPopup").onclick = () =>{
+    popup.classList.add("active");
+}
+
+document.getElementById("closePopup").onclick = () =>{
+    popup.classList.remove("active");
+}
+
+document.getElementById("chatWA").onclick = ()=>{
+
+    const nama=document.getElementById("nama").value.trim();
+    const alamat=document.getElementById("alamat").value.trim();
+
+    if(nama=="" || alamat==""){
+        alert("Silakan lengkapi data terlebih dahulu.");
+        return;
+    }
+
+    const pesan=
+`Halo Admin The Taruma 👋
+
+Saya ingin mendapatkan informasi mengenai rumah subsidi.
+
+Nama : ${nama}
+Alamat : ${alamat}
+
+Mohon informasi mengenai:
+• Harga terbaru
+• Simulasi KPR Subsidi
+• Promo yang sedang berlangsung
+• Jadwal survey lokasi
+
+Terima kasih.`;
+
+    window.open(
+        "https://wa.me/628XXXXXXXXXX?text="+encodeURIComponent(pesan),
+        "_blank"
+    );
+
+}
+    </script>
 
 </body>
 </html>
