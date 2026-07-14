@@ -1837,3 +1837,191 @@ header{
         transform:translateX(0);
     }
 }
+
+.chat-floating{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    background:#124A9F;
+    color:#fff;
+    padding:16px 24px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    z-index:9999;
+}
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:99999;
+}
+
+.popup-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.popup-box{
+    width:420px;
+    max-width:95%;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    position:relative;
+    animation:popup .35s;
+}
+
+@keyframes popup{
+    from{
+        transform:translateY(30px);
+        opacity:0;
+    }
+    to{
+        transform:none;
+        opacity:1;
+    }
+}
+
+.popup-logo{
+    width:65px;
+    margin-bottom:15px;
+}
+
+.popup-box h2{
+    color:#124A9F;
+    margin-bottom:5px;
+}
+
+.popup-box h3{
+    font-size:28px;
+    margin-bottom:15px;
+    color:#0F172A;
+}
+
+.popup-box p{
+    color:#666;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.popup-box input{
+    width:100%;
+    padding:16px;
+    border:none;
+    background:#f5f5f5;
+    border-radius:14px;
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+.popup-btn{
+    width:100%;
+    padding:16px;
+    background:#124A9F;
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.popup-btn:hover{
+    background:#0E3E86;
+}
+
+.close-popup{
+    position:absolute;
+    right:18px;
+    top:18px;
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.popup-box small{
+    display:block;
+    margin-top:15px;
+    color:#777;
+    text-align:center;
+}
+
+/* ==========================
+   Mobile Responsive
+========================== */
+
+@media (max-width:768px){
+
+    .chat-floating{
+        right:15px;
+        bottom:15px;
+        padding:14px 18px;
+        font-size:15px;
+    }
+
+    .popup-overlay{
+        padding:20px;
+        align-items:flex-end;
+    }
+
+    .popup-box{
+        width:100%;
+        max-width:100%;
+        border-radius:20px 20px 0 0;
+        padding:25px;
+        animation:slideUp .35s ease;
+    }
+
+    .popup-logo{
+        width:55px;
+    }
+
+    .popup-box h2{
+        font-size:26px;
+    }
+
+    .popup-box h3{
+        font-size:22px;
+        line-height:1.4;
+    }
+
+    .popup-box p{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+    .popup-box input{
+        padding:15px;
+        font-size:15px;
+    }
+
+    .popup-btn{
+        padding:15px;
+        font-size:16px;
+    }
+
+}
+
+@keyframes slideUp{
+
+    from{
+        transform:translateY(100%);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
